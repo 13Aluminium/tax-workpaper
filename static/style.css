@@ -1,0 +1,64 @@
+/*
+  style.css
+  ---------
+  Deliberately plain. The goal is "functional and readable", not pretty.
+*/
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #222; background: #fafafa; }
+a { color: #0645ad; cursor: pointer; text-decoration: underline; }
+button { cursor: pointer; padding: 4px 8px; margin: 2px; border: 1px solid #999; background: #eee; border-radius: 3px; }
+button.primary { background: #1f5fbf; color: white; border-color: #1f5fbf; }
+button.danger { background: #b02a2a; color: white; border-color: #b02a2a; }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+input, select, textarea { padding: 4px; border: 1px solid #aaa; border-radius: 3px; font-size: 13px; }
+textarea { width: 100%; }
+table { border-collapse: collapse; width: 100%; background: white; }
+th, td { border: 1px solid #ddd; padding: 4px 6px; text-align: left; vertical-align: top; }
+th { background: #f0f0f0; position: sticky; top: 0; }
+tr:hover td { background: #f6f9ff; }
+h2 { margin-top: 0; }
+h3 { margin-bottom: 6px; border-bottom: 1px solid #ddd; padding-bottom: 3px; }
+.num { text-align: right; font-family: monospace; }
+.muted { color: #777; }
+.hidden { display: none !important; }
+.badge { display: inline-block; padding: 2px 8px; border-radius: 10px; background: #ddd; font-size: 12px; }
+.sev-error { background: #f8d7da; color: #7a1c1c; }
+.sev-warning { background: #fff3cd; color: #6b5100; }
+.sev-info { background: #d9ecff; color: #0b3d75; }
+.ok { background: #d4edda; color: #155724; }
+.reopened { background: #f8d7da; color: #7a1c1c; font-weight: bold; }
+.card { background: white; border: 1px solid #ddd; padding: 10px; margin-bottom: 10px; border-radius: 4px; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+/* Top bar */
+#topbar { display: flex; gap: 12px; align-items: center; padding: 8px 12px; background: #23395d; color: white; flex-wrap: wrap; }
+#topbar input { flex: 1; min-width: 200px; }
+#topbar button { background: #3d5a8a; color: white; border-color: #5a77a8; }
+
+/* Main layout: nav | main | drawer */
+#layout { display: flex; height: calc(100vh - 48px); }
+#nav { width: 170px; background: #eef1f6; border-right: 1px solid #ccd; padding: 8px; overflow-y: auto; }
+#nav button { display: block; width: 100%; text-align: left; margin-bottom: 4px; background: white; }
+#nav button.active { background: #1f5fbf; color: white; }
+#main { flex: 1; padding: 14px; overflow-y: auto; }
+#drawer { width: 46%; min-width: 420px; border-left: 2px solid #23395d; background: white; padding: 10px 14px; overflow-y: auto; }
+#drawer .close { float: right; }
+
+/* Simulated document page */
+.paper { position: relative; height: 420px; border: 1px solid #999; background: #fffef8; margin: 6px 0;
+         box-shadow: 2px 2px 4px #ccc; }
+.field-box { position: absolute; border: 1.5px solid #1f5fbf; background: rgba(31,95,191,0.08); font-size: 10px;
+             overflow: hidden; padding: 1px 2px; cursor: pointer; white-space: nowrap; }
+.field-box.lowconf { border-color: #b02a2a; background: rgba(176,42,42,0.12); }
+.field-box.unused { border-style: dashed; border-color: #888; }
+.field-box.selected { outline: 3px solid orange; z-index: 5; background: #fff3cd; }
+.printed { background: #fffef8; border: 1px dashed #bbb; padding: 8px; font-family: Georgia, serif; line-height: 1.5; }
+mark { background: #ffe066; }
+mark.selected { background: orange; }
+
+#toast { position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%); background: #333; color: white;
+         padding: 8px 16px; border-radius: 4px; z-index: 100; max-width: 80%; }
+#toast.error { background: #b02a2a; }
+.small { font-size: 12px; }
+pre { white-space: pre-wrap; background: #f6f6f6; padding: 6px; font-size: 12px; }

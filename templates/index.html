@@ -1,0 +1,46 @@
+<!doctype html>
+<!--
+  index.html
+  ----------
+  The only HTML page. It is mostly empty: app.js fills in the main area
+  depending on which tab is selected. No framework (React etc.) on purpose,
+  to keep the prototype easy to read.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tax Workpaper</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <!-- Top bar: who am I, search, status -->
+  <header id="topbar">
+    <strong id="client-name">Tax Workpaper</strong>
+    <span id="status-badge" class="badge"></span>
+    <input id="search-box" placeholder="Search lines, documents, values..." onkeydown="if(event.key==='Enter') runSearch()">
+    <label>Acting as
+      <select id="user-switcher" onchange="switchUser(this.value)"></select>
+    </label>
+  </header>
+
+  <div id="layout">
+    <!-- Left navigation: one button per tab -->
+    <nav id="nav"></nav>
+
+    <!-- Main content for the selected tab -->
+    <main id="main">Loading...</main>
+
+    <!-- Right side panel: details of a line, document, value... -->
+    <aside id="drawer" class="hidden">
+      <button class="close" onclick="closeDrawer()">Close ✕</button>
+      <div id="drawer-content"></div>
+    </aside>
+  </div>
+
+  <!-- A small message bar for success / error messages -->
+  <div id="toast" class="hidden"></div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
